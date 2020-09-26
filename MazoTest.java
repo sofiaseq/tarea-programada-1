@@ -5,5 +5,10 @@ public class MazoTest{
         
         mazo.revolver();
         mazo.imprimir();
+        System.out.println();
+        //mazo.repartir(mazoJuego);
+        mazo.darSiguienteCarta();
+        mazo.darSiguienteCarta();
+        mazo.darSiguienteCarta();
     }
 }
