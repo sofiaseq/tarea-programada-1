@@ -1,5 +1,7 @@
+import javax.swing.JOptionPane;
 public class Mazo{
     private Carta[] cartas;
+    int posSiguienteCarta = 0;
     
     public Mazo(){
         this.crearCarta();
@@ -80,5 +82,29 @@ public class Mazo{
             cartas[i] = cartas[celdaAleatoria];
             cartas[celdaAleatoria] = tem;
         }
+    }
+    public void repartir(String [] mazo){
+        int cantRepartida = 5;
+        String [] baraja = new String [45];
+        posSiguienteCarta += cantRepartida;
+        
+        for(int i = 0; i < cantRepartida +1; i++){
+            int k = 0;
+            baraja[k] = mazo[i];
+            k++;
+        }
+    }
+    
+    public Carta darSiguienteCarta(){
+        Carta k = null;
+        if(posSiguienteCarta == 73){
+            JOptionPane.showMessageDialog(null, "No hay mas cartas, dele vuelta al mazo", " ", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            k = cartas [posSiguienteCarta];
+            posSiguienteCarta++;
+        }
+        cartas[posSiguienteCarta-1].imprimir();
+        return k;
     }
 }
