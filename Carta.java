@@ -15,6 +15,10 @@ public class Carta{
     public int getSimbolo(){
         return simbolo;
     }
+
+    public String getNombreCarta(){
+        return convertirSimbolo() + " " + color;
+    }
     
     public String convertirSimbolo(){
         String resultado = "";
