@@ -83,16 +83,42 @@ public class Mazo{
             cartas[celdaAleatoria] = tem;
         }
     }
-    public void repartir(String [] mazo){
+    public void repartir(Jugador player){
         int cantRepartida = 5;
-        String [] baraja = new String [45];
-        posSiguienteCarta += cantRepartida;
-        
-        for(int i = 0; i < cantRepartida +1; i++){
-            int k = 0;
-            baraja[k] = mazo[i];
+        Carta [] baraja = new Carta [45];
+        this.posSiguienteCarta += cantRepartida;
+        int k = 0;
+        for(int i = posSiguienteCarta-cantRepartida; i < posSiguienteCarta; i++){
+            baraja[k] = cartas[i];
             k++;
         }
+        player.baraja = baraja;
+        player.setPosSiguiente(k);
+    }
+
+    public void comeDos(Jugador player){
+        int cantRepartida = 2;
+        this.posSiguienteCarta += cantRepartida;
+        int k = player.posSiguienteCarta;
+        for(int i = posSiguienteCarta-cantRepartida; i < posSiguienteCarta; i++){
+            player.baraja[k] = cartas[i];
+            k++;
+        }
+        player.setPosSiguiente(k);
+    }
+    
+    public void buscarCementerio(Carta [] cementerio){
+        String [] stringCementerio = new String [cementerio.length];
+        for(int i = 0; i < cementerio.length; i++){
+            if(cementerio[i] != null){
+                stringCementerio[i] = cementerio[i].getNombreCarta();
+                System.out.println("Cementerio " + stringCementerio[i]);
+            }else{
+                break;
+            }
+        }
+        String resp1 = (String)JOptionPane.showInputDialog(null, "Seleccione una carta a recuperar", "Buscar", JOptionPane.DEFAULT_OPTION, null, stringCementerio, stringCementerio[0]);
+        System.out.println(resp1);
     }
     
     public Carta darSiguienteCarta(){
