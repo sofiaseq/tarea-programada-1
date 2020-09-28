@@ -54,14 +54,14 @@ public class Mazo{
         for(int j = 0; j < 11; j++){
             if(j<8){
                 for(int i = 0; i < 8; i++){
-                    Carta carta = new Carta(i, obtenerColor(j));
+                    Carta carta = new Carta(i, obtenerColor(j), false);
                     cartas[cont] = carta;
                     cont++;
                 }
             }
             else{
                 for(int k = 8; k < 11; k++){
-                    Carta carta = new Carta(k, obtenerColor(k));
+                    Carta carta = new Carta(k, obtenerColor(k), true);
                     cartas[cont] = carta;
                     cont++;
                 }
