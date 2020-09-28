@@ -1,6 +1,7 @@
 public class Carta{
     private String color;
     private int simbolo;
+    private boolean especial;
 
     public void setColor(String colorParametro){
         color = colorParametro;
@@ -39,8 +40,9 @@ public class Carta{
     }
     
     public Carta (int simboloParametro, String colorParametro){
-        simbolo = simboloParametro;
-        color = colorParametro;
+        this.simbolo = simboloParametro;
+        this.color = colorParametro;
+        this.especial = especial;
     }
     
      public void imprimir(){
