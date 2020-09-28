@@ -1,10 +1,13 @@
+import javax.swing.JOptionPane;
 public class MazoTest{
     
     public static void main (String args[]){
         Mazo mazo = new Mazo();
         Jugador diego = new Jugador("Diego");
         Jugador sofi = new Jugador("Sofia");
-        Carta[] cementerio = new Carta[73];
+        Cementerio cementerio = new Cementerio();
+        Boolean sigueJuego = true;
+        Boolean turno = true;
         
         mazo.revolver();
         mazo.imprimir();
@@ -12,8 +15,40 @@ public class MazoTest{
     
         mazo.repartir(diego);
         mazo.repartir(sofi);
+
+        cementerio.pilaDeDescarte[0] = mazo.darSiguienteCarta();
+        //Revelar primer carta del mazo al descarte.
+        while(sigueJuego){
+            if(turno){
+                // Turno J1
+                String mensaje = cementerio.mostrarUltimaCarta(cementerio.pilaDeDescarte);
+                String [] baraja = diego.mostrarBaraja(diego.baraja);
+                
+                String resp1 = (String)JOptionPane.showInputDialog(null, mensaje + " Las cartas de su baraja son: ", "", JOptionPane.DEFAULT_OPTION, null, baraja , baraja[0]);
+                System.out.println(resp1);
+                turno = false;
+                // J1 puede ver sus cartas y la última carta de descarte
+                // J1 seleccionar cartas a jugar o comer 1
+            }else{
+                //Turno J2
+                turno = true;
+            }
+            
+            // Validar si puede jugar la carta que seleccionó
+            // Es especial?
+            if(diego.baraja[0] == null){
+                sigueJuego = false;
+                //Ganador player1
+            }else if(sofi.baraja[0] == null){
+                sigueJuego = false;
+                //Ganador player2                
+            }
+            //Game Over?
+                sigueJuego = false;
+        }
+
         
-        mazo.comeDos(diego);
+        /*mazo.comeDos(diego);
         mazo.comeDos(sofi);
         
         cementerio[0] = diego.baraja[0];
