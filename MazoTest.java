@@ -6,8 +6,8 @@ public class MazoTest{
         Jugador diego = new Jugador("Diego");
         Jugador sofi = new Jugador("Sofia");
         Cementerio cementerio = new Cementerio();
-        Boolean sigueJuego = true;
-        Boolean turno = true;
+        boolean sigueJuego = true;
+        boolean turno = true;
         
         mazo.revolver();
         mazo.imprimir();
