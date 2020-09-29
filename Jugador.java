@@ -1,5 +1,4 @@
 public class Jugador {
-
     public String nombre;
     public Carta[] baraja;
     public int posSiguienteCarta = 0;
@@ -11,6 +10,7 @@ public class Jugador {
     public void setPosSiguiente(int pos){
         this.posSiguienteCarta = pos;
     }
+    
     public String [] mostrarBaraja(Carta[] baraja){
         String [] strBaraja = new String [baraja.length];
         for(int i = 0; i < baraja.length; i++){
