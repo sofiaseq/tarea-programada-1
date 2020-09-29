@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 public class Mazo{
-    private Carta[] cartas;
+    public Carta[] cartas;
     int posSiguienteCarta = 0;
     
     public Mazo(){
@@ -50,7 +50,6 @@ public class Mazo{
     public void crearCarta(){
         cartas = new Carta [73];
         int cont = 0;
-        
         for(int j = 0; j < 11; j++){
             if(j<8){
                 for(int i = 0; i < 8; i++){
@@ -83,6 +82,7 @@ public class Mazo{
             cartas[celdaAleatoria] = tem;
         }
     }
+    
     public void repartir(Jugador player){
         int cantRepartida = 5;
         Carta [] baraja = new Carta [45];
@@ -95,7 +95,7 @@ public class Mazo{
         player.baraja = baraja;
         player.setPosSiguiente(k);
     }
-
+    
     public void comeDos(Jugador player){
         int cantRepartida = 2;
         this.posSiguienteCarta += cantRepartida;
@@ -119,6 +119,10 @@ public class Mazo{
         }
         String resp1 = (String)JOptionPane.showInputDialog(null, "Seleccione una carta a recuperar", "Buscar", JOptionPane.DEFAULT_OPTION, null, stringCementerio, stringCementerio[0]);
         System.out.println(resp1);
+    }
+    
+    public void cancelar(){
+        
     }
     
     public Carta darSiguienteCarta(){
