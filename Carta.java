@@ -16,7 +16,10 @@ public class Carta{
     public int getSimbolo(){
         return simbolo;
     }
-
+    public boolean getEspecial(){
+        return especial;
+    }
+    
     public String getNombreCarta(){
         return convertirSimbolo() + " " + color;
     }
@@ -39,7 +42,7 @@ public class Carta{
         return resultado;
     }
     
-    public Carta (int simboloParametro, String colorParametro){
+    public Carta (int simboloParametro, String colorParametro, boolean especial){
         this.simbolo = simboloParametro;
         this.color = colorParametro;
         this.especial = especial;
@@ -47,5 +50,9 @@ public class Carta{
     
      public void imprimir(){
        System.out.println(convertirSimbolo() + " " + color);
+    }
+    
+    public void validacion(Carta carta){
+        
     }
 }
